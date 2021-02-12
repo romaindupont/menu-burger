@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import './style.scss';
+import classNames from 'classnames';
+import React, { useState } from 'react';
 
 function App() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className={classNames("menu-modal", {'menu-modal--open':open})}></div>
+      <div className="menu" onClick={e => setOpen(!open)}>
+        <div className={classNames("menu-burger", {'menu-burger--open':open})}>
+          <div className={classNames("menu-burger-bar1", {'menu-burger--open-bar1':open})}></div>
+          <div className={classNames("menu-burger-bar2", {'menu-burger--open-bar2':open})}></div>
+          <div className={classNames("menu-burger-bar3", {'menu-burger--open-bar3':open})}></div>
+        </div>
+        </div>
+      
     </div>
   );
 }
